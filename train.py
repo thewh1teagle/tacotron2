@@ -160,6 +160,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
     hparams (object): comma separated list of "name=value" pairs.
     """
     if hparams.distributed_run:
+        print("Init distributed")
         init_distributed(hparams, n_gpus, rank, group_name)
 
     torch.manual_seed(hparams.seed)
