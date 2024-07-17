@@ -2,7 +2,7 @@ import tensorflow as tf
 from text import symbols
 
 
-def create_hparams(hparams_string=None, verbose=False):
+def create_hparams(hparams_string=None, verbose=False, training_files = 'filelists/ljs_audio_text_train_filelist.txt', validation_files = 'filelists/ljs_audio_text_val_filelist.txt', text_cleaners = ['basic_cleaners']):
     """Create model hyperparameters. Parse nondefault from given string."""
 
     hparams = tf.contrib.training.HParams(
@@ -25,9 +25,9 @@ def create_hparams(hparams_string=None, verbose=False):
         # Data Parameters             #
         ################################
         load_mel_from_disk=False,
-        training_files='filelists/ljs_audio_text_train_filelist.txt',
-        validation_files='filelists/ljs_audio_text_val_filelist.txt',
-        text_cleaners=['english_cleaners'],
+        training_files=training_files,
+        validation_files=validation_files,
+        text_cleaners=text_cleaners,
 
         ################################
         # Audio Parameters             #
