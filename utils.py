@@ -4,7 +4,7 @@ import torch
 
 
 def get_mask_from_lengths(lengths):
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cuda')
         
     max_len = torch.max(lengths).item()
     ids = torch.arange(0, max_len, dtype=torch.long, device=device)
