@@ -44,5 +44,5 @@ python split_data.py
 # Train
 
 ```console
-python train.py --output_directory=data/outdir --log_directory=data/logdir --training-files data/train_data/metadata.csv --validation-files data/validation_data/metadata.csv
+python train.py --output_directory=data/chkpt --log_directory=data/logdir --training-files data/train_data/metadata.csv --validation-files data/validation_data/metadata.csv
 ```
