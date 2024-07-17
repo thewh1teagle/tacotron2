@@ -88,7 +88,6 @@ def create_hparams(hparams_string=None, verbose=False, training_files = 'filelis
         grad_clip_thresh=1.0,
         batch_size=64,
         mask_padding=True,  # set model's padded outputs to padded values
-        distributed_run=False # colab support only 1 GPU
     )
 
     if hparams_string:
