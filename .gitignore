@@ -11,3 +11,6 @@ data/train_data/*
 
 data/validation_data/*
 !data/validation_data/.gitkeep
+data/resampled
+!data/resampeld/.gitkeep
+data/outdir/

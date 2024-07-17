@@ -4,11 +4,12 @@ import torch
 
 
 def get_mask_from_lengths(lengths):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        
     max_len = torch.max(lengths).item()
-    ids = torch.arange(0, max_len, out=torch.cuda.LongTensor(max_len))
+    ids = torch.arange(0, max_len, dtype=torch.long, device=device)
     mask = (ids < lengths.unsqueeze(1)).bool()
     return mask
-
 
 def load_wav_to_torch(full_path):
     sampling_rate, data = read(full_path)
@@ -23,7 +24,6 @@ def load_filepaths_and_text(filename, split="|"):
 
 def to_gpu(x):
     x = x.contiguous()
-
     if torch.cuda.is_available():
         x = x.cuda(non_blocking=True)
     return torch.autograd.Variable(x)

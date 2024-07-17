@@ -2,10 +2,15 @@ import tensorflow as tf
 from text import symbols
 
 
+class AttrDict(dict):
+    def __init__(self, *args, **kwargs):
+        super(AttrDict, self).__init__(*args, **kwargs)
+        self.__dict__ = self
+
 def create_hparams(hparams_string=None, verbose=False, training_files = 'filelists/ljs_audio_text_train_filelist.txt', validation_files = 'filelists/ljs_audio_text_val_filelist.txt', text_cleaners = ['basic_cleaners']):
     """Create model hyperparameters. Parse nondefault from given string."""
 
-    hparams = tf.contrib.training.HParams(
+    hparams = AttrDict(
         ################################
         # Experiment Parameters        #
         ################################
