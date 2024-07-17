@@ -14,3 +14,4 @@ data/validation_data/*
 data/resampled
 !data/resampeld/.gitkeep
 data/outdir/
+data.7z

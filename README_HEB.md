@@ -46,3 +46,17 @@ python split_data.py
 ```console
 python train.py --output_directory=data/chkpt --log_directory=data/logdir --training-files data/train_data/metadata.csv --validation-files data/validation_data/metadata.csv
 ```
+
+# Upload to colab
+
+```console
+7z a -t7z data.7z train_data validation_data
+```
+
+# Extract on colab
+
+```
+from google.colab import drive
+drive.mount('drive', force_remount=True)
+7z x data.7z
+```
